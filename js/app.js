@@ -42,6 +42,19 @@ function startGame() {
         newArrayCard.classList.remove('open', 'show', 'match');
     }
 }
+
+/*
+ *
+ * Toggle classes function
+ * 
+ */
+
+let openCard = function {
+    this.classList.toggle('open');
+    this.classList.toggle('show');
+}
+
+
  
  
 
