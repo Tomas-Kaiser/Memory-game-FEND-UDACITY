@@ -49,9 +49,18 @@ function startGame() {
  * 
  */
 
-let openCard = function {
+let openCard = function() {
     this.classList.toggle('open');
     this.classList.toggle('show');
+}
+
+/*
+ *
+ * Main events listener
+ * 
+ */
+for (const card of cards) {
+    card.addEventListener('click', openCard);
 }
 
 
