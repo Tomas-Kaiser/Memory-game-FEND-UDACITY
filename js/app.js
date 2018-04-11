@@ -32,7 +32,17 @@ function shuffle(array) {
  *
  * Start game function
  * 
- * /
+ */
+function startGame() {
+    deck.innerHTML = '';
+    shuffle(newArrayCards);
+
+    for (const newArrayCard of newArrayCards) {
+        deck.appendChild(newArrayCard);
+        newArrayCard.classList.remove('open', 'show', 'match');
+    }
+}
+ 
  
 
 
