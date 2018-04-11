@@ -1,6 +1,9 @@
 /*
  * Create a list that holds all of your cards
  */
+let cards = document.querySelectorAll('.card');
+let newArrayCards = [...cards];
+const deck = document.querySelector('.deck');
 
 
 /*
@@ -24,6 +27,13 @@ function shuffle(array) {
 
     return array;
 }
+
+/*
+ *
+ * Start game function
+ * 
+ * /
+ 
 
 
 /*
