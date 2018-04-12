@@ -83,6 +83,17 @@ function OpenCards() {
     }
 }
 
+/*
+ *
+ *Match, unmatched 
+ * 
+ */
+function match() {
+    openedCards[0].classList.add('match');
+    openedCards[1].classList.add('match');
+    openedCards[0].classList.remove('open', 'show');
+    openedCards[1].classList.remove('open', 'show');
+}
 
  
  
