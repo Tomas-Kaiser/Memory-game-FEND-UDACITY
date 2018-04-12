@@ -4,6 +4,7 @@
 let cards = document.querySelectorAll('.card');
 let newArrayCards = [...cards];
 const deck = document.querySelector('.deck');
+let openedCards = [];
 
 
 /*
@@ -61,6 +62,25 @@ let openCard = function() {
  */
 for (const card of cards) {
     card.addEventListener('click', openCard);
+    card.addEventListener('click', opnedCards);
+}
+
+/*
+ *
+ * Open Card function
+ * 
+ */
+function OpenCards() {
+    openedCards.push(this);
+    if (OpenedCards.length === 1) {
+        movesCounter();
+    }else{
+        if (openedCards[0].innerHTML != openedCards[1].innerHTML) {
+            unmatched();
+        }else{
+            matched();
+        }
+    }
 }
 
 
