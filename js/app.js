@@ -14,6 +14,8 @@ let openedCards = [];
  *   - add each card's HTML to the page
  */
 
+ startGame();
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -62,7 +64,7 @@ let openCard = function() {
  */
 for (const card of cards) {
     card.addEventListener('click', openCard);
-    card.addEventListener('click', opnedCards);
+    card.addEventListener('click', openCards);
 }
 
 /*
@@ -70,10 +72,10 @@ for (const card of cards) {
  * Open Card function
  * 
  */
-function OpenCards() {
+function openCards() {
     openedCards.push(this);
-    if (OpenedCards.length === 1) {
-        movesCounter();
+    if (openedCards.length === 1) {
+        console.log('movesCounter()');
     }else{
         if (openedCards[0].innerHTML != openedCards[1].innerHTML) {
             unmatched();
@@ -85,17 +87,23 @@ function OpenCards() {
 
 /*
  *
- *Match, unmatched 
+ *Matched, unmatched
  * 
  */
-function match() {
+function matched() {
     openedCards[0].classList.add('match');
     openedCards[1].classList.add('match');
     openedCards[0].classList.remove('open', 'show');
     openedCards[1].classList.remove('open', 'show');
+    openedCards = [];
 }
 
- 
+function unmatched() {
+    
+    openedCards[0].classList.remove('open', 'show');
+    openedCards[1].classList.remove('open', 'show');
+    openedCards = [];
+}
  
 
 
