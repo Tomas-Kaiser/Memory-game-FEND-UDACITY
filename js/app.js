@@ -99,10 +99,11 @@ function matched() {
 }
 
 function unmatched() {
-    
+    setTimeout(function() {
     openedCards[0].classList.remove('open', 'show');
     openedCards[1].classList.remove('open', 'show');
     openedCards = [];
+    }, 1500);
 }
  
 
