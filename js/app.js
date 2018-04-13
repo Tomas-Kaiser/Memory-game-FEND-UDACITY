@@ -99,11 +99,18 @@ function matched() {
 }
 
 function unmatched() {
+    disabled();
     setTimeout(function() {
-    openedCards[0].classList.remove('open', 'show');
-    openedCards[1].classList.remove('open', 'show');
-    openedCards = [];
+        openedCards[0].classList.remove('open', 'show');
+        openedCards[1].classList.remove('open', 'show');
+        openedCards = [];
     }, 1500);
+}
+
+function disabled() {
+    for (const newArrayCard of newArrayCards) {
+        newArrayCard.classList.add('disabled');
+    }
 }
  
 
