@@ -7,6 +7,8 @@ const deck = document.querySelector('.deck');
 let openedCards = [];
 let moves = document.querySelector('.moves');
 moves.textContent = 0;
+const star1 = document.getElementById('star1');
+const star2 = document.getElementById('star2');
 
 
 
@@ -131,6 +133,7 @@ function allow() {
  */
 function moveCounter() {
     moves.textContent++;
+    rating(moves.textContent);
 }
 
 
@@ -139,6 +142,18 @@ function moveCounter() {
  * Rating function
  * 
  */
+function rating(move) {
+    if (move >= 17) {
+        star1.classList.remove('fa-star');
+    }else{
+        if (move >= 8 && move < 17) {
+            star2.classList.remove('fa-star');
+        }
+    }
+}
+
+
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
