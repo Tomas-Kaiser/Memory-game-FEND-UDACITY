@@ -9,6 +9,10 @@ let moves = document.querySelector('.moves');
 moves.textContent = 0;
 const star1 = document.getElementById('star1');
 const star2 = document.getElementById('star2');
+let timer = document.getElementById('timer');
+let min = 0;
+let sec = 0;
+
 
 
 
@@ -80,7 +84,7 @@ for (const card of cards) {
 function openCards() {
     openedCards.push(this);
     if (openedCards.length === 1) {
-            moveCounter()
+            moveCounter();
         this.classList.add('disabled');
     }else{
         if (openedCards[0].innerHTML != openedCards[1].innerHTML) {
@@ -134,6 +138,9 @@ function allow() {
 function moveCounter() {
     moves.textContent++;
     rating(moves.textContent);
+    if (moves.textContent == 1) {
+        startStopwatch();
+    }   
 }
 
 
@@ -152,6 +159,25 @@ function rating(move) {
     }
 }
 
+/*
+ *
+ * Stopwatch function
+ * 
+ */
+function stopwatchFunc() {
+    timer.innerHTML = min + ' min ' + sec + ' sec';
+    if (sec == 60) {
+        min++;
+        sec = 0;
+     }else{
+         sec++;
+     }
+    }
+
+function startStopwatch() {
+    stopwatchFunc();
+    setInterval(stopwatchFunc, 1000);
+}
 
 
 
