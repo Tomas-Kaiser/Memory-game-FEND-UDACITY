@@ -5,6 +5,9 @@ let cards = document.querySelectorAll('.card');
 let newArrayCards = [...cards];
 const deck = document.querySelector('.deck');
 let openedCards = [];
+let moves = document.querySelector('.moves');
+moves.textContent = 0;
+
 
 
 /*
@@ -75,7 +78,7 @@ for (const card of cards) {
 function openCards() {
     openedCards.push(this);
     if (openedCards.length === 1) {
-        console.log('movesCounter()');
+            moveCounter()
         this.classList.add('disabled');
     }else{
         if (openedCards[0].innerHTML != openedCards[1].innerHTML) {
@@ -120,6 +123,22 @@ function allow() {
         newArrayCard.classList.remove('disabled');
     }
 }
+
+/*
+ *
+ * MoveCounter function
+ * 
+ */
+function moveCounter() {
+    moves.textContent++;
+}
+
+
+/*
+ *
+ * Rating function
+ * 
+ */
 
 /*
  * set up the event listener for a card. If a card is clicked:
