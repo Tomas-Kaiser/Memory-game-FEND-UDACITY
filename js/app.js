@@ -76,6 +76,7 @@ function openCards() {
     openedCards.push(this);
     if (openedCards.length === 1) {
         console.log('movesCounter()');
+        this.classList.add('disabled');
     }else{
         if (openedCards[0].innerHTML != openedCards[1].innerHTML) {
             unmatched();
@@ -91,8 +92,8 @@ function openCards() {
  * 
  */
 function matched() {
-    openedCards[0].classList.add('match');
-    openedCards[1].classList.add('match');
+    openedCards[0].classList.add('match', 'disabled');
+    openedCards[1].classList.add('match', 'disabled');
     openedCards[0].classList.remove('open', 'show');
     openedCards[1].classList.remove('open', 'show');
     openedCards = [];
@@ -103,8 +104,9 @@ function unmatched() {
     setTimeout(function() {
         openedCards[0].classList.remove('open', 'show');
         openedCards[1].classList.remove('open', 'show');
+        allow();        
         openedCards = [];
-    }, 1500);
+    }, 500);
 }
 
 function disabled() {
@@ -113,7 +115,11 @@ function disabled() {
     }
 }
  
-
+function allow() {
+    for (const newArrayCard of newArrayCards) {
+        newArrayCard.classList.remove('disabled');
+    }
+}
 
 /*
  * set up the event listener for a card. If a card is clicked:
