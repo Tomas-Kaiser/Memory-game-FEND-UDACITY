@@ -12,6 +12,7 @@ const star2 = document.getElementById('star2');
 let timer = document.getElementById('timer');
 let min = 0;
 let sec = 0;
+let restartBtn = document.querySelector('.restart');
 
 
 
@@ -46,6 +47,7 @@ function shuffle(array) {
  * 
  */
 function startGame() {
+    openedCards = [];
     deck.innerHTML = '';
     shuffle(newArrayCards);
 
@@ -53,6 +55,7 @@ function startGame() {
         deck.appendChild(newArrayCard);
         newArrayCard.classList.remove('open', 'show', 'match');
     }
+    resetMoves();
 }
 
 /*
@@ -178,6 +181,25 @@ function startStopwatch() {
     stopwatchFunc();
     setInterval(stopwatchFunc, 1000);
 }
+
+/*
+ *
+ * Reset functions
+ * 
+ */
+
+ //Reset time
+
+ //Reset stars
+
+ //Reset moves
+function resetMoves() {
+
+    moves.textContent = 0;
+}
+
+//Restart button function
+    restartBtn.addEventListener('click', startGame);
 
 
 
