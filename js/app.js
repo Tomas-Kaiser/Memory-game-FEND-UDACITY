@@ -11,6 +11,7 @@ const star1 = document.getElementById('star1');
 const star2 = document.getElementById('star2');
 let timer = document.getElementById('timer');
 let interval;
+let matchedCards = document.getElementsByClassName('match');
 let min = 0;
 let sec = 0;
 let restartBtn = document.querySelector('.restart');
@@ -172,12 +173,16 @@ function rating(move) {
  */
 function stopwatchFunc() {
     timer.innerHTML = min + ' min ' + sec + ' sec';
-    if (sec == 60) {
-        min++;
-        sec = 0;
-     }else{
-         sec++;
-     }
+    if (matchedCards.length < 16) {
+        if (sec == 60) {
+            min++;
+            sec = 0;
+         }else{
+             sec++;
+         }
+    }else{
+        clearInterval(interval);
+        }
     }
 
 function startStopwatch() {
