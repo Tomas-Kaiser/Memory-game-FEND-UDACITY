@@ -10,6 +10,7 @@ moves.textContent = 0;
 const star1 = document.getElementById('star1');
 const star2 = document.getElementById('star2');
 let timer = document.getElementById('timer');
+let interval;
 let min = 0;
 let sec = 0;
 let restartBtn = document.querySelector('.restart');
@@ -56,6 +57,7 @@ function startGame() {
         newArrayCard.classList.remove('open', 'show', 'match');
     }
     resetMoves();
+    restartStopwatch();
 }
 
 /*
@@ -179,7 +181,7 @@ function stopwatchFunc() {
 
 function startStopwatch() {
     stopwatchFunc();
-    setInterval(stopwatchFunc, 1000);
+    interval = setInterval(stopwatchFunc, 1000);
 }
 
 /*
@@ -189,6 +191,13 @@ function startStopwatch() {
  */
 
  //Reset time
+
+ function restartStopwatch() {
+     min = 0;
+     sec = 0;
+     timer.innerHTML = `${min} min ${sec} sec`
+     clearInterval(interval);
+ }
 
  //Reset stars
 
