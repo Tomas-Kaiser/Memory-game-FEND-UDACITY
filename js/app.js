@@ -56,6 +56,7 @@ function startGame() {
         deck.appendChild(newArrayCard);
         newArrayCard.classList.remove('open', 'show', 'match');
     }
+    resetStars();
     resetMoves();
     restartStopwatch();
 }
@@ -200,6 +201,14 @@ function startStopwatch() {
  }
 
  //Reset stars
+ function resetStars() {
+    if (moves.textContent >= 8 && moves.textContent < 17) {
+        star2.classList.add('fa-star');
+    }
+    if (moves.textContent >= 17) {
+        star1.classList.add('fa-star');
+    }
+ }
 
  //Reset moves
 function resetMoves() {
