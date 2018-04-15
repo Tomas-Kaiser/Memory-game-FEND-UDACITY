@@ -150,3 +150,13 @@ h1 {
     cursor: pointer;
 }
 
+.header {
+    text-align: center;
+    font-size: 35px;
+}
+
+.content-score {
+    text-align: center;
+    font-size: 20px;
+}
+

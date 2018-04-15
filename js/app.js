@@ -7,14 +7,19 @@ const deck = document.querySelector('.deck');
 let openedCards = [];
 let moves = document.querySelector('.moves');
 moves.textContent = 0;
+let stars = document.querySelector('.stars');
 const star1 = document.getElementById('star1');
 const star2 = document.getElementById('star2');
+const star3 = document.getElementById('star3');
 let timer = document.getElementById('timer');
 let interval;
 let matchedCards = document.getElementsByClassName('match');
 let min = 0;
 let sec = 0;
 let restartBtn = document.querySelector('.restart');
+let modal = document.querySelector('#myModal');
+let closeBtn = document.querySelector('.close');
+
 
 
 
@@ -55,7 +60,7 @@ function startGame() {
 
     for (const newArrayCard of newArrayCards) {
         deck.appendChild(newArrayCard);
-        newArrayCard.classList.remove('open', 'show', 'match');
+        newArrayCard.classList.remove('open', 'show', 'match', 'disabled');
     }
     resetStars();
     resetMoves();
@@ -81,6 +86,7 @@ let openCard = function() {
 for (const card of cards) {
     card.addEventListener('click', openCard);
     card.addEventListener('click', openCards);
+    card.addEventListener('click', openModal);
 }
 
 /*
@@ -160,7 +166,7 @@ function rating(move) {
     if (move >= 17) {
         star1.classList.remove('fa-star');
     }else{
-        if (move >= 8 && move < 17) {
+        if (move >= 13 && move < 17) {
             star2.classList.remove('fa-star');
         }
     }
@@ -207,11 +213,12 @@ function startStopwatch() {
 
  //Reset stars
  function resetStars() {
-    if (moves.textContent >= 8 && moves.textContent < 17) {
+    if (moves.textContent >= 13 && moves.textContent < 17) {
         star2.classList.add('fa-star');
     }
     if (moves.textContent >= 17) {
         star1.classList.add('fa-star');
+        star2.classList.add('fa-star');
     }
  }
 
@@ -223,6 +230,44 @@ function resetMoves() {
 
 //Restart button function
     restartBtn.addEventListener('click', startGame);
+
+/*
+ *
+ * Modal
+ * 
+ */
+
+
+function openModal() {
+    if (matchedCards.length == 16) {
+        setTimeout(function() {
+            modal.style.cssText = 'display: block';
+
+                let starsFinal = stars.innerHTML;
+                document.querySelector('.totalStars').innerHTML = starsFinal;
+
+                let movesFinal = moves.innerHTML;
+                document.querySelector('.totalMoves').innerHTML = movesFinal;
+                
+                let timeFinal = timer.innerHTML;
+                document.querySelector('.totalTime').innerHTML = timeFinal;
+
+            closeModal();
+            playAgain();
+        }, 500)
+    }
+}
+
+function closeModal() {
+    closeBtn.addEventListener('click', function() {
+        modal.style.cssText = 'display: none';
+        startGame();
+    })
+}
+
+function playAgain() {
+
+}
 
 
 
