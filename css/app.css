@@ -69,6 +69,7 @@ h1 {
     transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
+
 }
 
 .deck .card.show {
@@ -79,6 +80,18 @@ h1 {
     cursor: default;
     background: #02ccba;
     font-size: 33px;
+    position: relative;
+    animation-name: cardMatch;
+    animation-duration: 0.9s;
+}
+
+.deck .card.unmatchCard {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    position: relative;
+    animation-name: cardUnmatch;
+    animation-duration: 0.9s;
 }
 
 .disabled {
@@ -184,5 +197,18 @@ h1 {
 
 .button {
     text-align: center;
+}
+
+/* Animations */
+@keyframes cardMatch {
+    0%   {background-color:green; top: 0px; left: 0px;}
+    50%  {background-color:green; top: 5px; left: 5px;}
+    1000%   {background-color:green; top: 0px; left: 0px;}
+}
+@keyframes cardUnmatch {
+    0%   {background-color:red; left:0px;}
+    33%  {background-color:red; left:10px;}
+    66%  {background-color:red; left:-10px;}
+    100%   {background-color:red; left:0px;}
 }
 

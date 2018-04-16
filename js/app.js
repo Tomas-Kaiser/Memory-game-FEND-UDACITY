@@ -124,12 +124,14 @@ function matched() {
 
 function unmatched() {
     disabled();
+    openedCards[0].classList.add('unmatchCard');
+    openedCards[1].classList.add('unmatchCard');
     setTimeout(function() {
-        openedCards[0].classList.remove('open', 'show');
-        openedCards[1].classList.remove('open', 'show');
+        openedCards[0].classList.remove('open', 'show', 'unmatchCard');
+        openedCards[1].classList.remove('open', 'show', 'unmatchCard');
         allow();        
         openedCards = [];
-    }, 500);
+    }, 900);
 }
 
 function disabled() {
