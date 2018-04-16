@@ -19,6 +19,7 @@ let sec = 0;
 let restartBtn = document.querySelector('.restart');
 let modal = document.querySelector('#myModal');
 let closeBtn = document.querySelector('.close');
+const playAgainBtn = document.querySelector('.playAgainBtn');
 
 
 
@@ -69,7 +70,7 @@ function startGame() {
 
 /*
  *
- * Toggle classes function
+ * Open function (toggle)
  * 
  */
 
@@ -80,7 +81,7 @@ let openCard = function() {
 
 /*
  *
- * Main events listener
+ * Main events listeners
  * 
  */
 for (const card of cards) {
@@ -164,10 +165,10 @@ function moveCounter() {
  */
 function rating(move) {
     if (move >= 17) {
-        star1.classList.remove('fa-star');
+        star2.classList.remove('fa-star');
     }else{
         if (move >= 13 && move < 17) {
-            star2.classList.remove('fa-star');
+            star3.classList.remove('fa-star');
         }
     }
 }
@@ -178,7 +179,7 @@ function rating(move) {
  * 
  */
 function stopwatchFunc() {
-    timer.innerHTML = min + ' min ' + sec + ' sec';
+    timer.innerHTML = `${min} min ${sec} sec`; 
     if (matchedCards.length < 16) {
         if (sec == 60) {
             min++;
@@ -214,11 +215,11 @@ function startStopwatch() {
  //Reset stars
  function resetStars() {
     if (moves.textContent >= 13 && moves.textContent < 17) {
-        star2.classList.add('fa-star');
+        star3.classList.add('fa-star');
     }
     if (moves.textContent >= 17) {
-        star1.classList.add('fa-star');
         star2.classList.add('fa-star');
+        star3.classList.add('fa-star');
     }
  }
 
@@ -245,6 +246,7 @@ function openModal() {
 
                 let starsFinal = stars.innerHTML;
                 document.querySelector('.totalStars').innerHTML = starsFinal;
+                document.querySelector('.totalStars').classList.add('inlineStars');
 
                 let movesFinal = moves.innerHTML;
                 document.querySelector('.totalMoves').innerHTML = movesFinal;
@@ -261,12 +263,14 @@ function openModal() {
 function closeModal() {
     closeBtn.addEventListener('click', function() {
         modal.style.cssText = 'display: none';
-        startGame();
     })
 }
 
 function playAgain() {
-
+    playAgainBtn.addEventListener('click', function() {
+        modal.style.cssText = 'display: none';
+        startGame();
+    })
 }
 
 
