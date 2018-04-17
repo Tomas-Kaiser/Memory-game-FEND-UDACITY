@@ -222,7 +222,7 @@ h1 {
 @keyframes cardMatch {
     0%   {background-color:green; top: 0px; left: 0px;}
     50%  {background-color:green; top: 5px; left: 5px;}
-    1000%   {background-color:green; top: 0px; left: 0px;}
+    100%   {background-color:green; top: 0px; left: 0px;}
 }
 @keyframes cardUnmatch {
     0%   {background-color:red; left:0px;}
