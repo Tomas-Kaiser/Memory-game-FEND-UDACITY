@@ -2,10 +2,6 @@
 
 It is a simple game to train your memory.
 
-## Table of Contents
-
-* [Contributing](#contributing)
-
 ## Instructions
 
 To start playing the game click this link: https://tomas-kaiser.github.io/fend-project-memory-game/
