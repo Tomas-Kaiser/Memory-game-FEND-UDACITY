@@ -4,7 +4,7 @@ It is a simple game to train your memory.
 
 # Instructions
 
-To start playing the game click on this link: https://tomas-kaiser.github.io/fend-project-memory-game/
+To start playing the game click on this link: https://tomas-kaiser.github.io/Memory-game-FEND-UDACITY/
 
 The rules are quite simple - click on the card and find the same card. Once you found 8 pairs, you win.
 
